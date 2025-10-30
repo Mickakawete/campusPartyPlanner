@@ -1,0 +1,47 @@
+import React, { useContext } from 'react';
+import { EventContext } from '../context/EventContext';
+import "../styles/components/EventCard.css";
+
+export function EventCard({ event }) {
+    const  { likedEvents, toggleLike, likeCounts } = useContext(EventContext);
+
+    const isLiked = likedEvents.includes(event.id);
+    const  likeCount = likeCounts[event.id] || 0;
+
+    function handleLikeClick(e){
+        e.preventDefault();
+        toggleLike(event.id);
+    };
+    return (
+        <div className="event-card">
+            <div className="event-card__image-wrapper">
+                <img src={event.image} alt={event.name} className="event-card__image" />
+                <span className="event-card__date">{event.date}</span>
+                <button
+                    className={`event-card__like-btn ${isLiked ? 'liked' : ''}`}
+                    onClick={handleLikeClick}
+                    aria-label={isLiked ? "Unlike event" : "Like event"}
+                >
+                    {isLiked ? '❤️' : '🤍'}
+                    {likeCount >= 0 && <span className="like-count">{likeCount}</span>}
+                </button>
+            </div>
+            <div className="event-card__content">
+                <div className="event-card__header">
+                    <h3 className="event-card__title">{event.name}</h3>
+                    {event.category && (
+                        <span className="event-card__category">{event.category}</span>
+                    )}
+                </div>
+                <p className="event-card__location">
+                    <span className="event-card__icon">📍</span>
+                    {event.location}
+                </p>
+                <button className="event-card__button">
+                    Voir plus
+                </button>
+            </div>
+        </div>
+    );
+}
+
