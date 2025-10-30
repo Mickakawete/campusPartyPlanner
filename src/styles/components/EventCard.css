@@ -5,8 +5,7 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-width: 350px;
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .event-card:hover {
@@ -132,7 +131,6 @@
     background-color: #e96c00;
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 600px) {
     .event-card {
         max-width: 100%;
