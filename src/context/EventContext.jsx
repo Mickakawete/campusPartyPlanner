@@ -7,10 +7,7 @@ export const EventContext = createContext();
 export function EventProvider({ children }) {
     const [events, setEvents] = useState([]);
     const [selectedCity, setSelectedCity] = useState(null);
-    const [likedEvents, setLikedEvents] = useState([]);
     const [cities, setCities] = useState([]);
-
-    useEffect(() => {
     const [likedEvents, setLikedEvents] = useState(() => {
         try {
             const raw = localStorage.getItem("likedEvents");
@@ -28,6 +25,7 @@ export function EventProvider({ children }) {
             console.error("loadLikeCounts error", e);
             return {};
         }
+
     });
 
     useEffect(() => {
@@ -62,12 +60,7 @@ export function EventProvider({ children }) {
     const setCity = (city) => {
         setSelectedCity(city || null);
     };
-        try {
-            localStorage.setItem("likeCounts", JSON.stringify(likeCounts));
-        } catch (e) {
-            console.error("saveLikeCounts error", e);
-        }
-    }, [likeCounts]);
+
 
     const toggleLike = (eventId) => {
         const isCurrentlyLiked = likedEvents.includes(eventId);
@@ -85,7 +78,8 @@ export function EventProvider({ children }) {
             setLikeCounts(prev => ({
                 ...prev,
                 [eventId]: (prev[eventId] || 0) + 1
-            }));
+            }
+            ));
         }
     }
 
@@ -99,7 +93,7 @@ export function EventProvider({ children }) {
                 setCity,
                 likedEvents,
                 setLikedEvents,
-                cities
+                cities,
                 toggleLike,
                 likeCounts,
             }}
