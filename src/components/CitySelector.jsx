@@ -8,7 +8,8 @@ export const CitySelector = () => {
   return (
     <>
       <section className="section-city-selector">
-        <select className="section-city-selector__dropdown" value={selectedCity || ""} onChange={(e) => setCity(e.target.value)}>
+        <select className="section-city-selector__dropdown" value={selectedCity || "#"} onChange={(e) => setCity(e.target.value || null)}>
+            <option value="">Tous les événements</option>
           {cities.map((city) => (
             <option key={city} className="section-city-selector__dropdown__option" value={city}>{city}</option>
           ))}
