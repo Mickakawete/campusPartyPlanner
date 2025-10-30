@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { EventContext } from '../context/EventContext';
-import "../styles/components/EventCard.css";
+import "../styles/components/event-card.css";
 
 export function EventCard({ event }) {
     const  { likedEvents, toggleLike} = useContext(EventContext);
@@ -35,6 +35,10 @@ export function EventCard({ event }) {
                 <p className="event-card__location">
                     <span className="event-card__icon">📍</span>
                     {event.location}
+                </p>
+                <p className="event-card__location">
+                    <span className="event-card__icon">📍</span>
+                    {event.city}
                 </p>
                 <button className="event-card__button">
                     Voir plus
