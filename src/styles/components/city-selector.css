@@ -1,0 +1,36 @@
+.section-city-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+.section-city-selector__dropdown {
+    padding: 12px 30px 12px 20px;
+    width: 300px;
+    background-color: #ffffff;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    color: #333333;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.section-city-selector__dropdown:hover {
+    border-color: #e6a84d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-city-selector__dropdown:focus {
+    border-color: #e6a84d;
+    box-shadow: 0 0 0 4px rgba(230, 168, 77, 0.3);
+}

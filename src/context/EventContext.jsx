@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { fetchCities } from "../services/api";
 
 export const EventContext = createContext();
 
@@ -6,6 +7,7 @@ export function EventProvider({ children }) {
     const [events, setEvents] = useState([]);
     const [selectedCity, setSelectedCity] = useState(null);
     const [likedEvents, setLikedEvents] = useState([]);
+    const [cities, setCities] = useState([]);
 
     useEffect(() => {
         try {
@@ -26,6 +28,31 @@ export function EventProvider({ children }) {
         }
     }, [likedEvents]);
 
+    useEffect(() => {
+        let isCancelled = false;
+        async function loadCities() {
+            try {
+                const data = await fetchCities();
+                if (!isCancelled) {
+                    setCities(Array.isArray(data) ? data : []);
+                }
+            } catch (e) {
+                console.error("fetchCities error", e);
+                if (!isCancelled) {
+                    setCities([]);
+                }
+            }
+        }
+        loadCities();
+        return () => {
+            isCancelled = true;
+        };
+    }, []);
+
+    const setCity = (city) => {
+        setSelectedCity(city || null);
+    };
+
     return (
         <EventContext.Provider
             value={{
@@ -33,8 +60,10 @@ export function EventProvider({ children }) {
                 setEvents,
                 selectedCity,
                 setSelectedCity,
+                setCity,
                 likedEvents,
-                setLikedEvents
+                setLikedEvents,
+                cities
             }}
         >
             {children}

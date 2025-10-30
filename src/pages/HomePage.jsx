@@ -1,7 +1,11 @@
+import { CitySelector } from "../components/CitySelector"
+import "../styles/pages/home-page.css"
+
 export const HomePage = () => {
   return (
-    <>
-      <h1>Accueil</h1>
-    </>
+    <main className="home-page">
+      <h1>Trouvez facilement un évènement</h1>
+      <CitySelector/>
+    </main>
   )
 }
