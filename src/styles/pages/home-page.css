@@ -1,0 +1,27 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    min-height: calc(100vh - 80px);
+    background-color: #f7f9fc;
+}
+
+.home-page h1 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.home-page h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: 60%;
+    height: 3px;
+    background-color: #e6a84d;
+    border-radius: 2px;
+}

@@ -1,3 +1,5 @@
+import { CitySelector } from "../components/CitySelector"
+import "../styles/pages/home-page.css"
 import { EventCard } from '../components/EventCard.jsx';
 import {useContext, useEffect} from "react";
 import {EventContext} from "../context/EventContext.jsx";
@@ -12,6 +14,10 @@ export const HomePage = () => {
             .catch(error => console.error("Error fetching events:", error));
     }, [setEvents]);
   return (
+    <main className="home-page">
+      <h1>Trouvez facilement un évènement</h1>
+      <CitySelector/>
+    </main>
     <>
         <h1>Événements à venir</h1>
         <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', padding: '20px' }}>
