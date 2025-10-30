@@ -3,15 +3,14 @@ import { EventContext } from '../context/EventContext';
 import "../styles/components/EventCard.css";
 
 export function EventCard({ event }) {
-    const  { likedEvents, toggleLike, likeCounts } = useContext(EventContext);
+    const  { likedEvents, toggleLike} = useContext(EventContext);
 
     const isLiked = likedEvents.includes(event.id);
-    const  likeCount = likeCounts[event.id] || 0;
 
     function handleLikeClick(e){
         e.preventDefault();
         toggleLike(event.id);
-    };
+    }
     return (
         <div className="event-card">
             <div className="event-card__image-wrapper">
@@ -23,7 +22,7 @@ export function EventCard({ event }) {
                     aria-label={isLiked ? "Unlike event" : "Like event"}
                 >
                     {isLiked ? '❤️' : '🤍'}
-                    {likeCount >= 0 && <span className="like-count">{likeCount}</span>}
+
                 </button>
             </div>
             <div className="event-card__content">

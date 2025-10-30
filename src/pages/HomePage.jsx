@@ -17,8 +17,8 @@ export const HomePage = () => {
     <>
         <h1>Trouvez facilement un évènement</h1>
         <CitySelector/>
-        <h1>Événements à venir</h1>
-        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', padding: '20px' }}>
+        <h2>Événements à venir</h2>
+        <div className="content-event">
             {events.length > 0 ? (
                 events.map(event => (
                     <EventCard key={event.id} event={event} />

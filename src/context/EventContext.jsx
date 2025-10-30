@@ -3,7 +3,6 @@ import { fetchCities } from "../services/api";
 
 export const EventContext = createContext();
 
-
 export function EventProvider({ children }) {
     const [events, setEvents] = useState([]);
     const [selectedCity, setSelectedCity] = useState(null);
@@ -16,16 +15,6 @@ export function EventProvider({ children }) {
             console.error("loadLikes error", e);
             return [];
         }
-    });
-    const [likeCounts, setLikeCounts] = useState(() => {
-        try {
-            const counts = localStorage.getItem("likeCounts");
-            return counts ? JSON.parse(counts) : {};
-        } catch (e) {
-            console.error("loadLikeCounts error", e);
-            return {};
-        }
-
     });
 
     useEffect(() => {
@@ -61,25 +50,13 @@ export function EventProvider({ children }) {
         setSelectedCity(city || null);
     };
 
-
     const toggleLike = (eventId) => {
         const isCurrentlyLiked = likedEvents.includes(eventId);
 
         if (isCurrentlyLiked) {
-            // Unlike: retirer de la liste et décrémenter
             setLikedEvents(prev => prev.filter(id => id !== eventId));
-            setLikeCounts(prev => ({
-                ...prev,
-                [eventId]: Math.max(0, (prev[eventId] || 0) - 1)
-            }));
         } else {
-            // Like: ajouter à la liste et incrémenter
             setLikedEvents(prev => [...prev, eventId]);
-            setLikeCounts(prev => ({
-                ...prev,
-                [eventId]: (prev[eventId] || 0) + 1
-            }
-            ));
         }
     }
 
@@ -95,7 +72,6 @@ export function EventProvider({ children }) {
                 setLikedEvents,
                 cities,
                 toggleLike,
-                likeCounts,
             }}
         >
             {children}
@@ -103,5 +79,4 @@ export function EventProvider({ children }) {
     );
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export default EventContext;
