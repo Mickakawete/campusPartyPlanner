@@ -25,7 +25,7 @@
 
     /* --- Image Overlay --- */
     --gradient-overlay: linear-gradient(180deg, transparent,transparent, #051330);
-    --image-brightness: 0.6;
+    --image-brightness: 0.5;
 
     /* Coté des bordures */
     --border-radius: 10px;
@@ -58,7 +58,7 @@
 
     /* --- Image Overlay --- */
     --gradient-overlay: linear-gradient(180deg, transparent, transparent, #e8ecf1);
-    --image-brightness: 0.75;
+    --image-brightness: 0.5;
 }
 
 /* Réinitialisation Globale */

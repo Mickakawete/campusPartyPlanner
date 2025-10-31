@@ -7,3 +7,9 @@
     gap: 50px;
     width: 100%;
 }
+
+@media screen and (max-width: 900px) {
+    .event-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    }
+}
