@@ -2,9 +2,10 @@ import StatsChart from "../components/StatsChart.jsx";
 
 export const StatsPage = () => {
   return (
-    <>
-      <h1>Stats</h1>
+    <main>
+      <section className="section-stats-chart">
         <StatsChart/>
-    </>
+      </section>
+    </main>
   )
 }
