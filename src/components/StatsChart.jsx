@@ -70,17 +70,20 @@ export function StatsChart() {
     // Options du graphique
     const options = {
         responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: window.innerWidth < 768 ? 1 : 2, // Plus carré sur mobile
         plugins: {
             legend: {
-                position: 'top',
+                position: window.innerWidth < 768 ? 'bottom' : 'top',
                 align: 'center',
                 labels: {
                     font: {
-                        size: 14,
+                        size: window.innerWidth < 768 ? 12 : 14,
                         weight: '200',
                     },
                     color: textColor,
                     boxWidth: 20,
+                    padding: window.innerWidth < 768 ? 10 : 15,
                 }
             },
             title: {
@@ -88,12 +91,12 @@ export function StatsChart() {
                 text: 'Statistiques des événements par catégorie',
                 color: textColor,
                 font: {
-                    size: 40,
+                    size: window.innerWidth < 768 ? 20 : window.innerWidth < 1024 ? 30 : 40,
                     weight: '900',
                 },
                 padding: {
                     top: 10,
-                    bottom: 30
+                    bottom: window.innerWidth < 768 ? 15 : 30
                 },
             },
             tooltip: {
@@ -103,7 +106,7 @@ export function StatsChart() {
                 titleColor: textColor,
                 bodyColor: textColor,
                 bodyFont: {
-                    size: 15
+                    size: window.innerWidth < 768 ? 12 : 15
                 }
             }
         },
@@ -111,15 +114,17 @@ export function StatsChart() {
             x: {
                 grid: { display: false },
                 ticks: {
-                    font: { size: 12 },
-                    color: textColor
+                    font: { size: window.innerWidth < 768 ? 10 : 12 },
+                    color: textColor,
+                    maxRotation: window.innerWidth < 768 ? 45 : 0,
+                    minRotation: window.innerWidth < 768 ? 45 : 0,
                 }
             },
             y: {
                 beginAtZero: true,
                 ticks: {
                     stepSize: 1,
-                    font: { size: 12 },
+                    font: { size: window.innerWidth < 768 ? 10 : 12 },
                     color: textColor
                 },
                 grid: { color: gridColor }
