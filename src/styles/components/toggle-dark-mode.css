@@ -13,3 +13,10 @@
 
     transition: background var(--transition-duration) ease;
 }
+
+@media screen and (max-width: 900px ) {
+    .dark-mode-toggle {
+        width: 30px;
+        height: 30px;
+    }
+}

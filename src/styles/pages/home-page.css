@@ -52,3 +52,20 @@
     padding: 0 0 20px 0;
     transition: color var(--transition-duration) ease;
 }
+
+@media screen and (max-width: 1200px) {
+    .section-city-selector__title {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .section-city-selector {
+        padding: 10px;
+        height: 60vh;
+    }
+
+    .section-city-selector__title {
+        font-size: 40px;
+    }
+}

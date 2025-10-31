@@ -34,8 +34,28 @@
     content: "▶";
 }
 
-/ 2. État Interactif */
-.city-selector-dropdown:hover {
-    border-color: var(--color-accent-border);
-    background-color: var(--color-accent-bg);
+@media screen and (max-width: 1200px) {
+    .city-selector-dropdown,
+    .city-selector-dropdown::picker(select) {
+        appearance: base-select;
+        top: anchor(bottom);
+
+        width: 250px;
+        padding: 10px;
+
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .city-selector-dropdown,
+    .city-selector-dropdown::picker(select) {
+        appearance: base-select;
+        top: anchor(bottom);
+
+        width: 200px;
+        padding: 10px;
+
+        font-size: 10px;
+    }
 }

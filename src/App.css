@@ -66,3 +66,47 @@ header {
     background-color: var(--color-accent-border);
     border-color: var(--site-color);
 }
+
+@media screen and (max-width: 1200px) {
+    header {
+        padding: 0 10px;
+        height: 70px;
+    }
+
+    .site-title {
+        padding: 5px;
+
+        font-size: 25px;
+        font-weight: 200;
+    }
+
+    .site-navbar__navbar-link {
+        padding: 7px 12px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header {
+        height: 60px;
+    }
+
+    .site-title {
+        padding: 5px;
+
+        font-size: 15px;
+        font-weight: 200;
+        display: none;
+    }
+
+    .site-navbar {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .site-navbar__navbar-link {
+        padding: 7px 12px;
+        font-size: 10px;
+    }
+}
