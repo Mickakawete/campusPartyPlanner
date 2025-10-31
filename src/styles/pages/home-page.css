@@ -10,11 +10,13 @@
     justify-content: center;
     align-items: center;
 
-    background-image: 
-        linear-gradient(180deg, transparent, transparent, #051330),
-        url(../../assets/Background.png);
+    background-image:
+            var(--gradient-overlay),
+            url(../../assets/Background.png);
     background-size: cover;
     background-position: center;
+
+    transition: background-image var(--transition-duration) ease;
 }
 
 /* Titre de la section Héro */
@@ -23,9 +25,10 @@
     font-size: 80px;
     text-transform: uppercase;
     text-align: center;
-    
+
     background: linear-gradient(90deg, #f7d699, #cc9c43);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
 
     margin-bottom: 20px;
@@ -36,14 +39,16 @@
     width: 100%;
     padding: 50px;
     border-radius: 5px;
-    
+
     background-color: var(--bg);
+    transition: background-color var(--transition-duration) ease;
 }
 
 /* Titre interne de la carte (si utilisé) */
 .home-page-container__section-card__card-title {
     color: var(--text-dark);
     font-weight: 200;
-    
+
     padding: 0 0 20px 0;
+    transition: color var(--transition-duration) ease;
 }
