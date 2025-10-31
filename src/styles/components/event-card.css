@@ -6,12 +6,15 @@
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    
+
     min-height: 500px;
     padding: 20px;
 
     border-radius: var(--border-radius);
+    transition: box-shadow var(--transition-duration) ease;
 }
+
+
 
 /* Assure que tous les éléments de contenu sont au-dessus de l'image */
 .event-card__date,
@@ -23,7 +26,6 @@
     z-index: 1;
     color: white;
 }
-
 
 /* Arrière-Plan et Image */
 .event-card__image-container {
@@ -41,8 +43,9 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.6);
+    filter: brightness(var(--image-brightness));
     z-index: 0;
+    transition: filter var(--transition-duration) ease;
 }
 
 /* Overlay de Dégradé (pour l'effet d'ombre en bas) */
@@ -54,16 +57,16 @@
     width: 100%;
     height: 100%;
     z-index: 0.5;
-    background-image: linear-gradient(180deg, transparent, #051330);
+    background-image: var(--gradient-overlay);
+    transition: background-image var(--transition-duration) ease;
 }
-
 
 /* Bouton de Favori (Like Button) */
 .event-card__like-btn {
     position: absolute;
     top: 20px;
     right: 20px;
-    
+
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -75,6 +78,8 @@
     background: #ffffff33;
     cursor: pointer;
     font-size: 1.2em;
+
+    transition: background var(--transition-duration) ease;
 }
 
 .event-card__like-btn:hover {
@@ -85,7 +90,7 @@
 .event-card__date {
     font-size: 1.1em;
     font-weight: 200;
-    color: var(--text-light);
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
@@ -94,7 +99,7 @@
     flex-direction: column;
     align-items: center;
 
-    margin-top: auto; 
+    margin-top: auto;
     margin-bottom: auto;
 }
 
@@ -111,6 +116,7 @@
     font-weight: 300;
     text-align: center;
     margin-bottom: 10px;
+    color: var(--text-light);
 }
 
 /* Localisation et Icônes */
@@ -118,6 +124,7 @@
     width: 100%;
     font-size: 0.95em;
     font-weight: 200;
+    color: var(--text-light);
     display: flex;
     align-items: start;
 }
@@ -133,17 +140,18 @@
     width: 100%;
     padding: 10px 20px;
 
-    background-color: #cc9c430d;
-    border: 1px solid #cc9c4333;
+    background-color: var(--color-accent-bg);
+    border: 1px solid var(--color-accent-border);
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: all 0.3s ease;
-    
+    transition: all var(--transition-duration) ease;
+
     color: var(--text-light);
     text-decoration: none;
     font-weight: 400;
 }
 
 .event-card__button:hover {
-    border-color: #cb9c4366;
+    border-color: var(--site-color);
+    background-color: var(--color-accent-border);
 }

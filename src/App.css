@@ -11,12 +11,13 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    background-color: #05133071;
+    background-color: var(--color-bg-dark);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    
-    border-bottom: 1px solid #2c3648;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    border-bottom: 1px solid var(--color-border-dark);
+
+    transition: all var(--transition-duration) ease;
 }
 
 /* Titre du Site */
@@ -27,6 +28,8 @@ header {
     font-size: 30px;
     font-weight: 200;
     color: var(--text-light);
+
+    transition: color var(--transition-duration) ease;
 }
 
 .site-title span {
@@ -41,20 +44,25 @@ header {
     align-items: center;
     flex: 1;
     gap: 20px;
-    
-    list-style: none; 
+
+    list-style: none;
 }
 
 /* Liens de Navigation */
 .site-navbar__navbar-link {
     padding: 10px 15px;
-    background-color: #cc9c430d;
-    border: 1px solid #cc9c4333;
+    background-color: var(--color-accent-bg);
+    border: 1px solid var(--color-accent-border);
     border-radius: var(--border-radius);
 
     color: var(--text-light);
     text-decoration: none;
     font-weight: 400;
-    
-    transition: all 0.3s ease;
+
+    transition: all var(--transition-duration) ease;
+}
+
+.site-navbar__navbar-link:hover {
+    background-color: var(--color-accent-border);
+    border-color: var(--site-color);
 }

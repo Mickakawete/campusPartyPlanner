@@ -34,7 +34,7 @@
     content: "▶";
 }
 
-/* 2. État Interactif */
+/ 2. État Interactif */
 .city-selector-dropdown:hover {
     border-color: var(--color-accent-border);
     background-color: var(--color-accent-bg);
