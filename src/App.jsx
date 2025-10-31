@@ -1,27 +1,51 @@
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import { EventProvider } from './context/EventContext.jsx';
-import { BrowserRouter, Routes, Route, NavLink } from "react-router";
 import { HomePage } from './pages/HomePage.jsx';
 import { StatsPage } from './pages/StatsPage.jsx';
-import './App.css'
+
+import './App.css' // Styles globaux
+
+// Fonction pour définir le style de la NavLink en fonction de l'état "isActive"
+const getNavLinkStyle = ({ isActive }) => ({
+  border: isActive ? "1px solid #cc9c4366" : "1px solid #cc9c4333",
+});
 
 function App() {
-
   return (
     <>
+      {/* 1. Fournisseur de Contexte : Englobe l'application pour l'accès aux données globales */}
       <EventProvider>
+        {/* 2. Router : Nécessaire pour gérer la navigation */}
         <BrowserRouter>
-          <nav>
-            <h1 className='nav__title'>Campus Party Planner</h1>
-            <ul className='nav__list'>
-              <NavLink className='nav__link' style={({isActive}) => ({backgroundColor : isActive ? "#0000000c" : "transparent"})} to="/">Accueil</NavLink>
-              <NavLink className='nav__link' style={({isActive}) => ({backgroundColor : isActive ? "#0000000c" : "transparent"})} to="/stats">Statistique</NavLink>
-            </ul>
-          </nav>
 
+          {/* En-tête de l'application (Titre et Navigation) */}
+          <header>
+            <h1 className='site-title'>Campus Party <span>Planner</span></h1>
+            <nav className='site-navbar'>
+              {/* Liens de Navigation (NavLink utilise la fonction de style) */}
+              <NavLink 
+                className="site-navbar__navbar-link" 
+                style={getNavLinkStyle} 
+                to="/"
+              >
+                Accueil
+              </NavLink>
+              <NavLink 
+                className="site-navbar__navbar-link" 
+                style={getNavLinkStyle} 
+                to="/stats"
+              >
+                Statistique
+              </NavLink>
+            </nav>
+          </header>
+
+          {/* Définition des Routes de l'application */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/stats" element={<StatsPage />} />
           </Routes>
+
         </BrowserRouter>
       </EventProvider>
     </>
