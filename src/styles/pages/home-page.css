@@ -1,0 +1,71 @@
+/* Section Héro et Sélecteur de Ville */
+.section-city-selector {
+    width: 100%;
+    height: 80vh;
+    padding: 0 100px;
+    margin-bottom: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image:
+            var(--gradient-overlay),
+            url(../../assets/Background.png);
+    background-size: cover;
+    background-position: center;
+
+    transition: background-image var(--transition-duration) ease;
+}
+
+/* Titre de la section Héro */
+.section-city-selector__title {
+    font-weight: 900;
+    font-size: 80px;
+    text-transform: uppercase;
+    text-align: center;
+
+    background: linear-gradient(90deg, #f7d699, #cc9c43);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    margin-bottom: 20px;
+}
+
+/* Section de la Carte des Événements */
+.home-page-container__section-card {
+    width: 100%;
+    padding: 50px;
+    border-radius: 5px;
+
+    background-color: var(--bg);
+    transition: background-color var(--transition-duration) ease;
+}
+
+/* Titre interne de la carte (si utilisé) */
+.home-page-container__section-card__card-title {
+    color: var(--text-dark);
+    font-weight: 200;
+
+    padding: 0 0 20px 0;
+    transition: color var(--transition-duration) ease;
+}
+
+@media screen and (max-width: 1200px) {
+    .section-city-selector__title {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .section-city-selector {
+        padding: 10px;
+        height: 60vh;
+    }
+
+    .section-city-selector__title {
+        font-size: 40px;
+    }
+}

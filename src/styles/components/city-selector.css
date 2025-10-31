@@ -1,0 +1,45 @@
+/* Sélecteur Principal */
+.city-selector-dropdown,
+.city-selector-dropdown::picker(select) {
+    appearance: base-select;
+    top: anchor(bottom);
+
+    width: 300px;
+    padding: 10px;
+
+    cursor: pointer;
+    outline: none;
+    transition: all var(--transition-duration) ease;
+
+    background-color: var(--color-bg-dark);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border-dark);
+    border-radius: var(--border-radius);
+
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.city-selector-dropdown::picker-icon {
+    content: "▼";
+}
+
+.city-selector-dropdown option{
+    border-radius: var(--border-radius);
+}
+
+.city-selector-dropdown option::checkmark {
+    padding: 10px;
+    content: "▶";
+}
+
+.section-city-selector__dropdown:hover {
+    border-color: #e6a84d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-city-selector__dropdown:focus {
+    border-color: #e6a84d;
+    box-shadow: 0 0 0 4px rgba(230, 168, 77, 0.3);
+}

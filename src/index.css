@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Variables CSS Globales - DARK MODE (par défaut) */
+:root {
+    /* --- Couleurs de Fond --- */
+    --bg: #051330;
+    --color-bg-dark: #05133071;
+
+    /* --- Couleurs de Texte --- */
+    --text-light: #ffffff;
+    --text-dark: #4a4a4a;
+    --text-red: #ff3a3a;
+
+    /* --- Couleurs Primaires / Accentuation --- */
+    --site-color: #cc9c43;
+    --site-color-hover: #bb8f3d;
+
+    /* --- Couleurs de Bordure --- */
+    --border-color: #cccccc;
+    --color-border-dark: #2c3648;
+
+    /* --- Couleurs d'Accentuation Spécifiques --- */
+    --color-accent-border: #cc9c4333;
+    --color-accent-bg: #cc9c430d;
+
+    /* --- Image Overlay --- */
+    --gradient-overlay: linear-gradient(180deg, transparent,transparent, #051330);
+    --image-brightness: 0.5;
+
+    /* Coté des bordures */
+    --border-radius: 10px;
+
+    /* --- Animation et Transition --- */
+    --transition-duration: 0.3s;
+}
+
+/* Variables CSS Globales - LIGHT MODE (tons plus foncés) */
+:root.dark-mode {
+    /* --- Couleurs de Fond --- */
+    --bg: #e8ecf1;
+    --color-bg-dark: #f5f7facc;
+
+    /* --- Couleurs de Texte --- */
+    --text-light: #0a0a0a;
+    --text-dark: #4a4a4a;
+
+    /* --- Couleurs Primaires / Accentuation --- */
+    --site-color: #b8903d;
+    --site-color-hover: #a67f35;
+
+    /* --- Couleurs de Bordure --- */
+    --border-color: #c5c9cf;
+    --color-border-dark: #b8bdc5;
+
+    /* --- Couleurs d'Accentuation Spécifiques --- */
+    --color-accent-border: #b8903d44;
+    --color-accent-bg: #b8903d15;
+
+    /* --- Image Overlay --- */
+    --gradient-overlay: linear-gradient(180deg, transparent, transparent, #e8ecf1);
+    --image-brightness: 0.5;
+}
+
+/* Réinitialisation Globale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Poppins", sans-serif;
+}
+
+/* Styles du Corps */
+body {
+    background-color: var(--bg);
+    transition: background-color var(--transition-duration) ease;
+}
