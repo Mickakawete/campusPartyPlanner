@@ -8,8 +8,11 @@
 .stats-chart-card__stats-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
     margin-top: 30px;
     padding-top: 20px;
+    border-top: 1px solid var(--color-border-dark);
 }
 
 /* Chaque boîte de statistique */
@@ -17,6 +20,7 @@
     text-align: center;
     padding: 10px;
     min-width: 120px;
+    flex: 1 1 auto;
 }
 
 /* Titre de la statistique */
@@ -25,6 +29,7 @@
     font-weight: 200;
     color: var(--text-light);
     margin: 0 0 5px 0;
+    transition: color var(--transition-duration) ease;
 }
 
 /* Valeur numérique de la statistique */
@@ -32,16 +37,17 @@
     font-size: 28px;
     font-weight: bold;
     margin: 0;
+    transition: color var(--transition-duration) ease;
 }
 
 /* Couleur spécifique pour les valeurs totales */
 .stat-value-total {
-    color: var(--site-color); 
+    color: var(--site-color);
 }
 
 /* Couleur spécifique pour les événements likés */
 .stat-value-liked {
-    color: var(--text-red); 
+    color: var(--text-red);
 }
 
 /* Message si aucune donnée n'est disponible */
@@ -50,4 +56,75 @@
     padding: 20px;
     color: var(--text-light);
     font-style: italic;
+    transition: color var(--transition-duration) ease;
+}
+
+/* --- Media Queries pour Responsive --- */
+
+/* Tablettes et petits écrans (≤ 1024px) */
+@media (max-width: 1024px) {
+    .stats-chart-card {
+        padding: 50px 40px;
+    }
+
+    .stats-chart-card__stats-container__stat-box__stat-title {
+        font-size: 18px;
+    }
+
+    .stats-chart-card__stats-container__stat-box__stat-value {
+        font-size: 24px;
+    }
+}
+
+/* Smartphones (≤ 768px) */
+@media (max-width: 768px) {
+    .stats-chart-card {
+        padding: 30px 20px;
+    }
+
+    .stats-chart-card__stats-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stats-chart-card__stats-container__stat-box {
+        min-width: 100%;
+        padding: 15px;
+        background-color: var(--color-accent-bg);
+        border-radius: var(--border-radius);
+    }
+
+    .stats-chart-card__stats-container__stat-box__stat-title {
+        font-size: 16px;
+    }
+
+    .stats-chart-card__stats-container__stat-box__stat-value {
+        font-size: 22px;
+    }
+}
+
+/* Très petits écrans (≤ 480px) */
+@media (max-width: 480px) {
+    .stats-chart-card {
+        padding: 20px 15px;
+        border-radius: 8px;
+    }
+
+    .stats-chart-card__stats-container {
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+
+    .stats-chart-card__stats-container__stat-box {
+        padding: 12px;
+    }
+
+    .stats-chart-card__stats-container__stat-box__stat-title {
+        font-size: 14px;
+    }
+
+    .stats-chart-card__stats-container__stat-box__stat-value {
+        font-size: 20px;
+    }
 }
